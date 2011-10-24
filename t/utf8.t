@@ -40,7 +40,7 @@ use utf8;
         ::ok(utf8::is_utf8($got), "content is encoded");
         ::is($got, "出国まで四日間だけか", "body content encoded correctly");
 
-        return "イノド料理を食い過ぎた。うめええ";
+        return "インド料理を食い過ぎた。うめええ";
     }
 }
 
@@ -99,7 +99,7 @@ test_psgi
             my $res = $cb->($req);
             my $content = $res->content;
             ok(!utf8::is_utf8($content), "raw content is in bytes");
-            my $expected = "イノド料理を食い過ぎた。うめええ";
+            my $expected = "インド料理を食い過ぎた。うめええ";
             utf8::encode($expected);
             is($content, $expected, "got utf8 bytes");
         }
